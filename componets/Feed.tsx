@@ -1,7 +1,7 @@
 
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 import React from 'react';
-import { Card, Avatar, IconButton } from 'react-native-paper';
+import { Card, Avatar, IconButton, Icon } from 'react-native-paper';
 
 // Generate 100 fake feed items
 const data = Array.from({ length: 100 }).map((_, i) => ({
@@ -26,10 +26,16 @@ const renderItem = ({ item }: { item: FeedItem }) => (
     <Card.Content>
       <Text style={styles.caption}><Text style={styles.username}>{item.username}</Text> {item.caption}</Text>
     </Card.Content>
-    <Card.Actions>
+    <Card.Actions style={{ justifyContent: 'space-between',paddingHorizontal: 0 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
       <IconButton icon="heart-outline" size={24} onPress={() => {}} />
       <IconButton icon="comment-outline" size={24} onPress={() => {}} />
       <IconButton icon="share-outline" size={24} onPress={() => {}} />
+        </View>
+        <View>
+             <IconButton icon="bookmark-outline" size={24} onPress={() => {}} />
+        </View>
+       
     </Card.Actions>
   </Card>
 );
@@ -58,6 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     elevation: 2,
     overflow: 'hidden',
+    marginHorizontal: 3,
   },
   image: {
     height: 250,
